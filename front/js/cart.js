@@ -194,15 +194,15 @@ form.addEventListener("click",function(e){
     var address = valideInput("address","addressErrorMsg","text")
 
     let contact = {firstName,lastName,address,city,email}
-    let productId = []
+    let products = []
     savedProduct.forEach(element=>{
-        productId.push(element.id)
+        products.push(element.id)
     })
     console.log(contact)
-    console.log(productId)
+    console.log(products)
     fetch("http://localhost:3000/api/products/order", {
         method: "POST",
-        body: JSON.stringify({contact, productId}),
+        body: JSON.stringify({contact, products}),
         headers: { "Content-Type": "application/json"}
     })
         .then(function (res) {
@@ -210,9 +210,9 @@ form.addEventListener("click",function(e){
             return res.json()
         })
         .then(function (data) {
-            //window.localStorage.clear();
+            window.localStorage.clear();
             console.log("data")
-            //document.location.href = "confirmation.html?orderId=" + data.orderId;
+            document.location.href = "confirmation.html?orderId=" + data.orderId;
         })
         .catch(function (err) {
             console.log(err)
