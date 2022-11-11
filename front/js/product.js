@@ -44,7 +44,7 @@ function viewProduct (product){
 let btnCart = document.getElementById("addToCart")
 btnCart.addEventListener("click",onsubmit)
 
-//
+//Ajout option pour la couleur , la quantité
 
 function onsubmit (){
     let colorSelect = document.getElementById("colors")
