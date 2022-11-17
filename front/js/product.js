@@ -54,7 +54,7 @@ function onsubmit (){
     }
     let quantityProduct = document.getElementById("quantity")
     let quantityValue = parseInt(quantityProduct.value)
-    if (quantityValue <1 | quantityValue >100){
+    if (quantityValue <1 || quantityValue >100){
         alert("Veuillez choisir une quantité valide")
         return
     }

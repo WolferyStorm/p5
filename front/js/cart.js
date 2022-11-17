@@ -152,7 +152,6 @@ function valideInput (id,error,type){
     erreur.innerHTML = ""
     let regex = /^[a-zA-Z-\s]+$/
     let regexEmail = /.+@.+\..+/
-    let regexCity = /^\p{Lu}\p{L}*(?:[\s-]\p{Lu}\p{L}*)*$/
     let regexAddress = /^[a-zA-Z0-9\s,'-]*$/
     if(type === "text"){
         if(id==="address"){
@@ -193,7 +192,8 @@ form.addEventListener("click",function(e){
     var city =valideInput("city","cityErrorMsg","text")
     var address = valideInput("address","addressErrorMsg","text")
 
-    let contact = {firstName,lastName,address,city,email}
+    if(firstName != "" && lastName != "" && email !="" && city !="" && address !=""){
+        let contact = {firstName,lastName,address,city,email}
     let products = []
     savedProduct.forEach(element=>{
         products.push(element.id)
@@ -217,5 +217,6 @@ form.addEventListener("click",function(e){
         .catch(function (err) {
             console.log(err)
         })
+    }
 })
  
